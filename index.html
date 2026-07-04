@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roushan Singh — AI/ML Engineer</title>
+<meta name="description" content="Roushan Singh — AI/ML Engineer specialising in LLMs, RAG systems, and vision-language model fine-tuning. 4+ years of production experience.">
+<style>
+  :root {
+    --bg: #0b0f14;
+    --bg-alt: #111823;
+    --card: #151e2b;
+    --border: #223046;
+    --text: #d7e1ee;
+    --muted: #8b9bb0;
+    --accent: #4fd1c5;
+    --accent2: #7aa2f7;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(11,15,20,.85); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1000px; margin: 0 auto; padding: 14px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo { font-family: var(--mono); color: var(--accent); font-weight: 700; }
+  .nav-links a { color: var(--muted); margin-left: 22px; font-size: .92rem; }
+  .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero { padding: 90px 0 70px; }
+  .hero .hi { font-family: var(--mono); color: var(--accent); font-size: .95rem; }
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 10px 0 6px; color: #fff; }
+  .hero h2 { font-size: clamp(1.2rem, 3vw, 1.7rem); color: var(--muted); font-weight: 500; }
+  .hero p { max-width: 640px; margin-top: 18px; color: var(--muted); }
+  .hero .cta { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 11px 22px; border-radius: 6px;
+    font-size: .95rem; font-family: var(--mono);
+  }
+  .btn-primary { background: var(--accent); color: #06251f; font-weight: 700; }
+  .btn-primary:hover { filter: brightness(1.1); text-decoration: none; }
+  .btn-ghost { border: 1px solid var(--accent); color: var(--accent); }
+  .btn-ghost:hover { background: rgba(79,209,197,.08); text-decoration: none; }
+
+  /* Sections */
+  section { padding: 60px 0; }
+  section h3 {
+    font-size: 1.5rem; color: #fff; margin-bottom: 30px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  section h3::before { content: "//"; color: var(--accent); font-family: var(--mono); font-size: 1.1rem; }
+  section h3::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+  /* Skills */
+  .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .skill-card h4 { color: var(--accent2); font-size: .95rem; margin-bottom: 10px; font-family: var(--mono); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: .78rem; font-family: var(--mono); color: var(--text);
+    background: var(--bg-alt); border: 1px solid var(--border);
+    padding: 3px 10px; border-radius: 999px;
+  }
+
+  /* Experience */
+  .job { position: relative; padding: 0 0 34px 28px; border-left: 1px solid var(--border); }
+  .job:last-child { padding-bottom: 0; }
+  .job::before {
+    content: ""; position: absolute; left: -6px; top: 6px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--accent);
+  }
+  .job .period { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
+  .job h4 { color: #fff; font-size: 1.1rem; margin: 4px 0 2px; }
+  .job .org { color: var(--muted); font-size: .95rem; margin-bottom: 10px; }
+  .job ul { list-style: none; }
+  .job li { color: var(--muted); font-size: .93rem; padding-left: 18px; position: relative; margin-bottom: 6px; }
+  .job li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+
+  /* Projects */
+  .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .proj {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 24px; display: flex; flex-direction: column;
+    transition: transform .18s ease, border-color .18s ease;
+  }
+  .proj:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .proj .type { font-family: var(--mono); font-size: .75rem; color: var(--accent); margin-bottom: 8px; }
+  .proj h4 { color: #fff; font-size: 1.05rem; margin-bottom: 10px; }
+  .proj p { color: var(--muted); font-size: .9rem; flex: 1; }
+  .proj .stack { margin-top: 14px; font-family: var(--mono); font-size: .75rem; color: var(--accent2); }
+
+  /* Education & certs */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+  .plain-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
+  .plain-card h4 { color: var(--accent2); font-family: var(--mono); font-size: .95rem; margin-bottom: 14px; }
+  .plain-card ul { list-style: none; }
+  .plain-card li { color: var(--muted); font-size: .92rem; margin-bottom: 10px; padding-left: 18px; position: relative; }
+  .plain-card li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+  .plain-card li strong { color: var(--text); font-weight: 600; }
+
+  /* Contact */
+  #contact { text-align: center; padding-bottom: 80px; }
+  #contact h3 { justify-content: center; }
+  #contact h3::after { display: none; }
+  #contact p { color: var(--muted); max-width: 520px; margin: 0 auto 28px; }
+
+  footer {
+    border-top: 1px solid var(--border); padding: 22px 0;
+    text-align: center; color: var(--muted); font-size: .8rem; font-family: var(--mono);
+  }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--accent); }
+
+  /* Contact buttons */
+  .contact-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-wa { background: #25D366; color: #05270f; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-wa:hover { filter: brightness(1.1); text-decoration: none; }
+  .btn-wa svg, .wa-float svg { fill: currentColor; }
+
+  /* Floating WhatsApp button */
+  .wa-float {
+    position: fixed; bottom: 24px; right: 24px; z-index: 20;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25D366; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,.45);
+    transition: transform .15s ease;
+  }
+  .wa-float:hover { transform: scale(1.08); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="logo">roushan.singh</span>
+    <span class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </span>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="hi">Hi, my name is</div>
+  <h1>Roushan Singh.</h1>
+  <h2>I build production AI systems with LLMs.</h2>
+  <p>AI/ML Engineer with 4+ years of production experience shipping LLM pipelines, computer-vision models, and AI-powered analytics. I specialise in fine-tuning vision-language models (Qwen2.5-VL, Llama 3.2 Vision), RAG architectures, and end-to-end ML deployment on cloud and on-premise GPU infrastructure.</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="mailto:roushan06534@gmail.com">Get in touch</a>
+    <a class="btn btn-ghost" href="https://github.com/roushan00" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/roushansinh/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</header>
+
+<section id="skills" class="wrap">
+  <h3>Skills</h3>
+  <div class="skill-grid">
+    <div class="skill-card">
+      <h4>Languages</h4>
+      <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">JavaScript</span><span class="tag">Bash</span></div>
+    </div>
+    <div class="skill-card">
+      <h4>Frameworks &amp; Libraries</h4>
+      <div class="tags"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Hugging Face</span><span class="tag">LangChain</span><span class="tag">LangSmith</span><span class="tag">vLLM</span><span class="tag">Pydantic</span></div>
+    </div>
+    <div class="skill-card">
+      <h4>LLMs &amp; Gen AI</h4>
+      <div class="tags"><span class="tag">GPT-4</span><span class="tag">Llama</span><span class="tag">Mistral</span><span class="tag">Qwen2.5-VL</span><span class="tag">Gemini 2.5</span><span class="tag">RAG</span><span class="tag">LoRA</span><span class="tag">RLHF</span><span class="tag">Agentic AI</span></div>
+    </div>
+    <div class="skill-card">
+      <h4>Agent Tools &amp; Vector Search</h4>
+      <div class="tags"><span class="tag">CrewAI</span><span class="tag">AutoGen</span><span class="tag">n8n</span><span class="tag">FAISS</span><span class="tag">Pinecone</span><span class="tag">ChromaDB</span><span class="tag">PostgreSQL</span></div>
+    </div>
+    <div class="skill-card">
+      <h4>Big Data &amp; Streaming</h4>
+      <div class="tags"><span class="tag">Kafka</span><span class="tag">Spark</span><span class="tag">Databricks</span><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span></div>
+    </div>
+    <div class="skill-card">
+      <h4>Cloud &amp; MLOps</h4>
+      <div class="tags"><span class="tag">AWS</span><span class="tag">Bedrock</span><span class="tag">SageMaker</span><span class="tag">Azure OpenAI</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">MLflow</span><span class="tag">Airflow</span><span class="tag">FastAPI</span><span class="tag">Grafana</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="wrap">
+  <h3>Experience</h3>
+  <div class="job">
+    <span class="period">06/2025 – Present</span>
+    <h4>AI Engineer</h4>
+    <div class="org">Vitreous Patel Processing Pvt. Limited</div>
+    <ul>
+      <li>Built production OCR invoice extraction pipeline fine-tuning Qwen2.5-VL and Llama 3.2 Vision, extracting structured data from 6+ beverage distributor formats at 96% accuracy on 50K+ documents daily.</li>
+      <li>Developed AI Price Intelligence system using Gemini 2.5 Flash for competitive price tracking across Total Wine, BevMo, and Google Shopping with real-time margin analysis.</li>
+      <li>Designed PostgreSQL schemas and built a live Angular dashboard with price trend charts and alert management UI.</li>
+      <li>Implemented daily scrape orchestration with an alert engine for automated price change notifications to store managers.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <span class="period">02/2025 – 06/2025</span>
+    <h4>Freelance AI Engineer</h4>
+    <div class="org">Independent / Self-employed</div>
+    <ul>
+      <li>Developed and deployed custom LLM and computer-vision solutions for independent clients, covering model fine-tuning, RAG pipelines, and API integration.</li>
+      <li>Evaluated emerging open-source vision-language models (Qwen2.5-VL, Llama 3.2 Vision), building the foundation for subsequent production work.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <span class="period">02/2023 – 02/2025</span>
+    <h4>AI / ML Engineer</h4>
+    <div class="org">Ineuron</div>
+    <ul>
+      <li>Led development of a multi-modal RAG-based AI search engine integrating LLMs, FAISS, and Elasticsearch for enterprise document retrieval.</li>
+      <li>Fine-tuned T5/BART for document summarisation, reducing legal document review time by 60%.</li>
+      <li>Built Hadoop/Spark-based predictive analytics for supply chain optimisation, reducing delays by 25%.</li>
+      <li>Built a Finance AI Copilot for real-time fraud detection and market analysis using Databricks, Kafka, and MongoDB.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <span class="period">08/2020 – 12/2022</span>
+    <h4>Data Analyst</h4>
+    <div class="org">EZ</div>
+    <ul>
+      <li>Performed complex statistical data analysis and reporting, increasing data accessibility and usability by 30%.</li>
+      <li>Automated repetitive reporting operations, accelerating turnaround and reducing manual effort.</li>
+      <li>Developed and enforced data privacy protocols for enterprise client data.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects" class="wrap">
+  <h3>Projects</h3>
+  <div class="proj-grid">
+    <div class="proj">
+      <div class="type">AI / Vision</div>
+      <h4>OCR Invoice Extraction Pipeline</h4>
+      <p>Production pipeline extracting structured data from beverage distributor invoices into PostgreSQL. Fine-tuned Qwen2.5-VL &amp; Llama 3.2 Vision with Unsloth/LoRA; improved accuracy from 89% to 96% with a human-in-the-loop feedback loop, cutting manual data entry by 85%.</p>
+      <div class="stack">Qwen2.5-VL · Unsloth · vLLM · Pydantic · PostgreSQL</div>
+    </div>
+    <div class="proj">
+      <div class="type">AI / Analytics</div>
+      <h4>AI Price Intelligence</h4>
+      <p>Competitive price tracking that scrapes competitor prices, detects anomalies, and generates AI-powered pricing suggestions for store managers — with LLM-based product matching and real-time margin calculation against invoice costs.</p>
+      <div class="stack">Gemini 2.5 Flash · APScheduler · Angular · PostgreSQL</div>
+    </div>
+    <div class="proj">
+      <div class="type">AI / Automation</div>
+      <h4>Automatic Video Generation</h4>
+      <p>End-to-end automated video creation integrating LLMs and media generation APIs — from script generation to final rendering, producing high-quality videos in minutes with no manual intervention.</p>
+      <div class="stack">LLMs · Media APIs · Automation Pipeline</div>
+    </div>
+    <div class="proj">
+      <div class="type">ML / Real-time</div>
+      <h4>Real-time Fraud Detection</h4>
+      <p>Processes 10K+ transactions/second at 99.7% accuracy with &lt;50ms prediction latency using feature caching and model optimisation. A/B testing framework reduced false positives by 15%.</p>
+      <div class="stack">Feature Caching · Model Optimisation · A/B Testing</div>
+    </div>
+    <div class="proj">
+      <div class="type">AI / RAG</div>
+      <h4>Conversational RAG App</h4>
+      <p>Contextual Q&amp;A over uploaded PDFs with intelligent chunking, embedding-based semantic search, and persistent chat history for accurate multi-turn conversations.</p>
+      <div class="stack">LangChain · OpenAI API · Streamlit · FAISS</div>
+    </div>
+    <div class="proj">
+      <div class="type">AI / Agents</div>
+      <h4>Stock Market AI Agent</h4>
+      <p>Autonomous agent for real-time stock market analysis, integrating LLMs with live financial data sources for decision-making and market insight generation.</p>
+      <div class="stack">AGiXT · LLMs · Financial APIs</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h3>Education &amp; Certifications</h3>
+  <div class="two-col">
+    <div class="plain-card">
+      <h4>Education</h4>
+      <ul>
+        <li><strong>Master's in Data Science</strong> — Euron <em>(in progress)</em></li>
+        <li><strong>Bachelor of Arts (English)</strong> — University of Delhi, 2018</li>
+      </ul>
+    </div>
+    <div class="plain-card">
+      <h4>Certifications</h4>
+      <ul>
+        <li><strong>Generative AI with LLMs</strong> — DeepLearning.AI, 2024</li>
+        <li><strong>LLMOps Specialization</strong> — DeepLearning.AI, 2025</li>
+        <li><strong>Introduction to LLM</strong> — IIT Delhi, 2025</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="wrap">
+  <h3>Get In Touch</h3>
+  <p>I'm open to AI/ML engineering roles and freelance projects. Email me or drop a WhatsApp message — I usually reply within a few hours.</p>
+  <div class="contact-btns">
+    <a class="btn btn-primary" href="mailto:roushan06534@gmail.com?subject=Opportunity%20for%20Roushan%20Singh">✉ Email me</a>
+    <a class="btn btn-wa" href="https://wa.me/918826132696?text=Hi%20Roushan%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.3 7L4 29l7.2-2.2c1.9 1 4 1.6 6.2 1.6h.6c6.6 0 12-5.4 12-12S22.6 3 16 3zm7 17c-.3.8-1.7 1.6-2.4 1.7-.6.1-1.4.1-2.2-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5-6-5.3-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-2.9c.3-.3.7-.4.9-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.2.4 0 .7-.1.2-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.4 2.8 1.8 3.2 2 .4.2.6.2.9-.1.2-.3 1-1.2 1.3-1.6.3-.4.5-.3.9-.2.4.1 2.4 1.1 2.8 1.3.4.2.7.3.8.5.1.2.1 1-.2 1.8z"/></svg>
+      WhatsApp me
+    </a>
+  </div>
+</section>
+
+<a class="wa-float" href="https://wa.me/918826132696?text=Hi%20Roushan%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.3 7L4 29l7.2-2.2c1.9 1 4 1.6 6.2 1.6h.6c6.6 0 12-5.4 12-12S22.6 3 16 3zm7 17c-.3.8-1.7 1.6-2.4 1.7-.6.1-1.4.1-2.2-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5-6-5.3-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-2.9c.3-.3.7-.4.9-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.2.4 0 .7-.1.2-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.4 2.8 1.8 3.2 2 .4.2.6.2.9-.1.2-.3 1-1.2 1.3-1.6.3-.4.5-.3.9-.2.4.1 2.4 1.1 2.8 1.3.4.2.7.3.8.5.1.2.1 1-.2 1.8z"/></svg>
+</a>
+
+<footer>
+  <a href="https://github.com/roushan00" target="_blank" rel="noopener">GitHub</a> ·
+  <a href="https://www.linkedin.com/in/roushansinh/" target="_blank" rel="noopener">LinkedIn</a> ·
+  <a href="https://wa.me/918826132696" target="_blank" rel="noopener">WhatsApp</a> ·
+  <a href="tel:+918826132696">+91 88261 32696</a><br>
+  © 2026 Roushan Singh — Delhi, India
+</footer>
+
+</body>
+</html>
