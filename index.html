@@ -45,7 +45,20 @@
   .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
   /* Hero */
-  .hero { padding: 90px 0 70px; }
+  .hero { padding: 90px 0 70px; display: flex; align-items: center; gap: 56px; }
+  .hero-text { flex: 1; min-width: 0; }
+  .hero-photo { flex-shrink: 0; }
+  .hero-photo img {
+    width: 260px; height: 260px; border-radius: 50%; object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 8px rgba(79,209,197,.08), 0 12px 40px rgba(0,0,0,.5);
+    display: block;
+  }
+  @media (max-width: 760px) {
+    .hero { flex-direction: column-reverse; text-align: center; gap: 36px; }
+    .hero .cta { justify-content: center; }
+    .hero-photo img { width: 190px; height: 190px; }
+  }
   .hero .hi { font-family: var(--mono); color: var(--accent); font-size: .95rem; }
   .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 10px 0 6px; color: #fff; }
   .hero h2 { font-size: clamp(1.2rem, 3vw, 1.7rem); color: var(--muted); font-weight: 500; }
@@ -165,14 +178,19 @@
 </nav>
 
 <header class="hero wrap">
-  <div class="hi">Hi, my name is</div>
-  <h1>Roushan Singh.</h1>
-  <h2>I build production AI systems with LLMs.</h2>
-  <p>AI/ML Engineer with 4+ years of production experience shipping LLM pipelines, computer-vision models, and AI-powered analytics. I specialise in fine-tuning vision-language models (Qwen2.5-VL, Llama 3.2 Vision), RAG architectures, and end-to-end ML deployment on cloud and on-premise GPU infrastructure.</p>
-  <div class="cta">
-    <a class="btn btn-primary" href="mailto:roushan06534@gmail.com">Get in touch</a>
-    <a class="btn btn-ghost" href="https://github.com/roushan00" target="_blank" rel="noopener">GitHub</a>
-    <a class="btn btn-ghost" href="https://www.linkedin.com/in/roushansinh/" target="_blank" rel="noopener">LinkedIn</a>
+  <div class="hero-text">
+    <div class="hi">Hi, my name is</div>
+    <h1>Roushan Singh.</h1>
+    <h2>I build production AI systems with LLMs.</h2>
+    <p>AI/ML Engineer with 4+ years of production experience shipping LLM pipelines, computer-vision models, and AI-powered analytics. I specialise in fine-tuning vision-language models (Qwen2.5-VL, Llama 3.2 Vision), RAG architectures, and end-to-end ML deployment on cloud and on-premise GPU infrastructure.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="mailto:roushan06534@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" href="https://github.com/roushan00" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/roushansinh/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="profile.jpg" alt="Roushan Singh — AI/ML Engineer" onerror="this.parentElement.style.display='none'">
   </div>
 </header>
 
